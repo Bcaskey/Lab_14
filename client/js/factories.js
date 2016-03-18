@@ -4,7 +4,7 @@
 var factories = angular.module('myApp.factories', []);
 
 factories.factory('BlogEntry', ['$resource', function($resource) {
-    return $resource('http://localhost:3000/api/posts');//need url here
+    return $resource('http://localhost:3000/api/posts/:id');//need url here
 }]);
 
 //GET http://localhost:3000/api/posts - Get an array of all blog posts
