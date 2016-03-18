@@ -4,13 +4,13 @@ var app = angular.module('myApp', ['myApp.controllers', 'myApp.factories', 'ngRo
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-    .when('/', {
+    .when('/blogposts.html', {
         templateUrl: 'views/blogposts.html',
         controller: 'allBlogsController'
     })
-    .when('/newpost', {
+    .when('/newpost.html', {
         templateUrl: 'views/newpost.html',
-        controller: 'allBlogsController'
+        controller: 'newBlogsController'
     })
     // .when('/instructors/:id', {
     //     templateUrl: 'views/instructor_detail.html',

@@ -4,7 +4,6 @@ var controllers = angular.module('myApp.controllers', []);
 
 
 controllers.controller('allBlogsController', ['$scope', 'BlogEntry', function($scope, BlogEntry) {
-    let count = 0;
     $scope.getAllBlogs = function() {
         BlogEntry.query().$promise.then(function(data) {
             $scope.blogs = data;
@@ -12,9 +11,12 @@ controllers.controller('allBlogsController', ['$scope', 'BlogEntry', function($s
             var success = data;
             $scope.blogs = success;
         }, console.error);
-        count++;
-        console.log($scope.blogs);
+        console.log(BlogEntry);
+        $scope.getAllBlogs();
     }
+}]);
+
+controllers.controller('newBlogsController', ['$scope', 'BlogEntry', function($scope, BlogEntry) {
     
     $scope.getPost = function(){
         var blogObj = {
@@ -25,6 +27,5 @@ controllers.controller('allBlogsController', ['$scope', 'BlogEntry', function($s
         console.log(blogObj);
         BlogEntry.save({blogObj});        
     }
-    $scope.getAllBlogs();
+   
 }]);
-
