@@ -13,7 +13,7 @@ controllers.controller('allBlogsController', ['$scope', 'BlogEntry', function($s
             $scope.blogs = success;
         }, console.error);
         count++;
-        console.log($scope.blogs);
+        console.log(BlogEntry);
     }
     
     $scope.getPost = function(){

@@ -1,1 +1,11 @@
-<h1></h1>
+<h1>All Blog Posts</h1>
+
+<div>
+    <div ng-repeat="blog in blogs">
+    <span id="blgId">{{blogs.id}}: </span>
+    <span id="blgTitle">{{blogs.title}}: </span>
+    <span id="blgAuthor">{{blogs.author}}: </span>
+    <span id="blogContent">{{blogs.content}}- </span>
+    <span id="blogCreated">{{blogs.createdAt | date: 'M/dd h:mm'}}</span>
+    </div>
+</div>
