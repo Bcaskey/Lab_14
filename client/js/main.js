@@ -4,19 +4,19 @@ var app = angular.module('myApp', ['myApp.controllers', 'myApp.factories', 'ngRo
 
 app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
-    .when('/blogposts.html', {
+    .when('/', {
         templateUrl: 'views/blogposts.html',
         controller: 'allBlogsController'
     })
-    .when('/newpost.html', {
+    .when('/newpost', {
         templateUrl: 'views/newpost.html',
         controller: 'newBlogsController'
     })
-    // .when('/instructors/:id', {
-    //     templateUrl: 'views/instructor_detail.html',
-    //     controller: 'InstructorDetailController'
-    // })
+    .when('/posts/:id', {
+        templateUrl: 'views/singblogposts.html',
+        controller: 'singBlogsController'
+    })
     .otherwise({
-        redirectTo: '/'
+        redirectTo: '/',
     });
 }]);

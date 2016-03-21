@@ -1,11 +1,15 @@
-<h1>All Blog Posts blogs.html</h1>
+<h1>All blogs page</h1>
 
 <div>
     <div ng-repeat="blog in blogs">
-    <span id="blgId">{{blog.id}}: </span>
+    <a href="#posts/{{blog.id}}"><span id="blgId">{{blog.id}}</span></a>
     <span id="blgTitle">{{blog.title}}: </span>
     <span id="blgAuthor">{{blog.author}}: </span>
     <span id="blogContent">{{blog.content}}- </span>
     <span id="blogCreated">{{blog.createdAt | date: 'M/dd h:mm'}}</span>
     </div>
-<h3>test at bottom of form</h3>
+<p>
+    <button a href="#/newpost">Create new post</button>
+</p>
+
+  <!-- post above is defined for the route params. >-->

@@ -1,26 +1,46 @@
-//Logic for page actions here. 
-
 var controllers = angular.module('myApp.controllers', []);
-
 
 controllers.controller('allBlogsController', ['$scope', 'BlogEntry', function($scope, BlogEntry) {
     $scope.getAllBlogs = function() {
         BlogEntry.query().$promise.then(function(data) {
             $scope.blogs = data;
         }, console.error);
-        // console.log(BlogEntry); //BlogEntry deosnt error or return blogs, tried but failed, success, data
     }
     $scope.getAllBlogs();
+    $scope.getPostId = function(){
+        // var getCurrentId = $scope.getId
+        var getCurrentId = $scope.blogs.id
+        // console.log(getCurrentId);
+    }
+    
+}]);
+
+controllers.controller('singBlogsController', ['$scope', 'BlogEntry', '$routeParams', function($scope, BlogEntry, $routeParams) {
+    $scope.getSingBlogs = function() {
+        var postId = $routeParams.id;
+        // console.log(id);
+        // console.log(BlogEntry + id)
+        
+        BlogEntry.get({id: postId}).$promise.then(function(data) {
+            $scope.blog = data;
+        })
+        // $scope.blog = BlogEntry[blog_id];
+    }
+    $scope.getSingBlogs();
+    
+    
 }]);
 
 
-function loadTodos() {
-  $scope.items = todoFactory.query() 
-}
+
+    //   var note = Notes.get({ id:$routeParams.id });
+    //   note.text = ‘Some new note text’;
+    //   Notes.update({ id:note.id }, note);
+      
+      
 
 controllers.controller('newBlogsController', ['$scope', 'BlogEntry', function($scope, BlogEntry) {
-    
-    $scope.getPost = function(){
+    $scope.makePost = function(){
         var blogObj = {
             title: $scope.title,
             author: $scope.author,
@@ -31,3 +51,7 @@ controllers.controller('newBlogsController', ['$scope', 'BlogEntry', function($s
     }
    // NOTE submit post still needs to navigate back to the main page.
 }]);
+
+
+
+  
