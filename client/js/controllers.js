@@ -38,14 +38,15 @@ controllers.controller('singBlogsController', ['$scope', 'BlogEntry', '$routePar
 
       
 
-controllers.controller('newBlogsController', ['$scope', 'BlogEntry', function($scope, BlogEntry) {
+controllers.controller('newBlogsController', ['$scope', 'BlogEntry', '$location', function($scope, BlogEntry, $location) {
     $scope.makePost = function(){
         var blogObj = {
             title: $scope.title,
             author: $scope.author,
             content: $scope.content
         }
-        BlogEntry.save(blogObj);        
+        BlogEntry.save(blogObj);
+        $location.path("/blogposts");
     }
    // NOTE submit post still needs to navigate back to the main page.
 }]);
