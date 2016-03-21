@@ -22,7 +22,7 @@ controllers.controller('allBlogsController', ['$scope', 'BlogEntry', "$location"
     
 }]);
 
-controllers.controller('singBlogsController', ['$scope', 'BlogEntry', '$routeParams', function($scope, BlogEntry, $routeParams) {
+controllers.controller('singBlogsController', ['$scope', 'BlogEntry', '$routeParams', '$location', function($scope, BlogEntry, $routeParams, $location) {
     $scope.getSingBlogs = function() {
         var postId = $routeParams.id;
         
@@ -31,8 +31,10 @@ controllers.controller('singBlogsController', ['$scope', 'BlogEntry', '$routePar
         })
         // $scope.blog = BlogEntry[blog_id];
     }
-    $scope.getSingBlogs();
-    
+    $scope.getSingBlogs(); //
+    $scope.rtrnBlogsPage = function() {
+        $location.path("/blogposts");
+      };
 }]);
 
 
